@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Bairros</title>
+
+    <!--inicio do css -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="node_modules/angular-toastr/dist/angular-toastr.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="node_modules/angular-ui-grid/ui-grid.css">
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+    <!-- fim do css -->
+
+    <!-- inicio do js -->
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-aria/angular-aria.js"></script>
+    <script src="node_modules/angular-material/angular-material.js"></script>
+    <script src="node_modules/angular-messages/angular-messages.js"></script>
+    <script src="node_modules/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.js"></script>
+
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="app/config/pd-app.js"></script>
+    <script src="app/views/bairro/cadastro-bairro.controller.js"></script>
+    <script src="app/controller/index-router.controller.js"></script>
+    <script src="app/service/alert.service.js"></script>
+    <script src="app/filter/maiusculo.filter.js"></script>
+    <script src="node_modules/angular-ui-grid/ui-grid.js"></script>
+    <script src="app/config/pd-rotas.config.js"></script>
+    <script src="node_modules/oclazyload/dist/ocLazyLoad.js"></script>
+    <!-- fim do js -->
+</head>
+<body ng-app="pdApp" class="container">
+<div ng-controller="CadastroBairroController">
+
+    <form name="bairroForm" novalidate>
+        <div class="panel panel-success">
+
+            <div class="panel panel-heading">
+                Cadastro de Bairros
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group"
+                             ng-class="{'has-error' : bairroForm.nomeBairro.$touched && bairroForm.nomeBairro.$invalid}">
+                            <label class="control-label">Nome do bairro</label>
+                            <input type="text"
+                                   class="form-control"
+                                   ng-model="entidade.nomeBairro"
+                                   ng-required="true"
+                                   ng-minlength="3"
+                                   ng-maxlength="20"
+                                   name="nomeBairro">
+                            <div ng-messages="bairroForm.nomeBairro.$error"
+                                 ng-if="bairroForm.nomeBairro.$touched"
+                                 class="text-danger">
+                                <div ng-messages-include="app/template/input-ng-messages.html"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group"
+                             ng-class="{'has-error' : bairroForm.nomeCidade.$touched && bairroForm.nomeCidade.$invalid}">
+                            <label class="control-label">Nome da cidade</label>
+                            <input type="text"
+                                   class="form-control"
+                                   ng-model="entidade.nomeCidade"
+                                   ng-required="true"
+                                   ng-minlength="3"
+                                   ng-maxlength="20"
+                                   name="nomeCidade"
+                            >
+                            <div ng-messages="bairroForm.nomeCidade.$error"
+                                 ng-if="bairroForm.nomeCidade.$touched"
+                                 class="text-danger">
+                                <div ng-messages-include="app/template/input-ng-messages.html"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group"
+                             ng-class="{'has-error' : bairroForm.estado.$touched && bairroForm.estado.$invalid}">
+                            <label class="control-label">Estado</label>
+                            <input type="text"
+                                   class="form-control"
+                                   ng-model="entidade.estado"
+                                   ng-required="true"
+                                   ng-minlength="3"
+                                   ng-maxlength="20"
+                                   name="estado"
+                            >
+                            <div ng-messages="bairroForm.estado.$error"
+                                 ng-if="bairroForm.estado.$touched"
+                                 class="text-danger">
+                                <div ng-messages-include="app/template/input-ng-messages.html"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div ui-grid="gridOptions"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-footer">
+                <button class="btn btn-primary navbar-btn"
+                        ng-click="salvar()">
+                    <i class="fa fa-floppy-o"></i>Salvar
+                </button>
+                <button class="btn btn-warning navbar-btn"
+                        ng-click="limpar()">Limpar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
