@@ -20,9 +20,7 @@ function CadastroBairroController($scope, toastr, AlertService) {
             {name: 'Nome do Bairro', field: 'nomeBairro', width: 300},
             {name: 'Nome da Cidade', field:'nomeCidade', width: 300},
             {name: 'Estado', field:'estado', width: 300},
-            {name: '', field:'acoes',
-                cellTemplate: 'app/template/grid/cell-template.html',
-                width: 30}
+            {name: '', field:'acoes', cellTemplate: 'app/template/grid/cell-template.html'}
         ],
         data:'listaBairros',
         enableColumnsMenus: false
