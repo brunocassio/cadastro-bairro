@@ -5,29 +5,29 @@
     <title>Cadastro de Bairros</title>
 
     <!--inicio do css -->
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="node_modules/angular-toastr/dist/angular-toastr.css">
-    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="node_modules/angular-ui-grid/ui-grid.css">
-    <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="../../../node_modules/angular-toastr/dist/angular-toastr.css">
+    <link rel="stylesheet" href="../../../node_modules/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../../../node_modules/angular-ui-grid/ui-grid.css">
+    <link rel="stylesheet" href="../../../node_modules/angular-material/angular-material.css">
     <!-- fim do css -->
 
     <!-- inicio do js -->
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="node_modules/angular-aria/angular-aria.js"></script>
-    <script src="node_modules/angular-material/angular-material.js"></script>
-    <script src="node_modules/angular-messages/angular-messages.js"></script>
-    <script src="node_modules/angular-toastr/dist/angular-toastr.tpls.js"></script>
-    <script src="node_modules/angular-animate/angular-animate.js"></script>
+    <script src="../../../node_modules/angular/angular.js"></script>
+    <script src="../../../node_modules/angular-aria/angular-aria.js"></script>
+    <script src="../../../node_modules/angular-material/angular-material.js"></script>
+    <script src="../../../node_modules/angular-messages/angular-messages.js"></script>
+    <script src="../../../node_modules/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="../../../node_modules/angular-animate/angular-animate.js"></script>
 
-    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="app/config/pd-app.js"></script>
-    <script src="app/views/bairro/cadastro-bairro.controller.js"></script>
-    <script src="app/service/alert.service.js"></script>
-    <script src="node_modules/angular-ui-grid/ui-grid.js"></script>
-    <script src="app/config/pd-rotas.config.js"></script>
-    <script src="node_modules/oclazyload/dist/ocLazyLoad.js"></script>
+    <script src="../../../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../../config/pd-app.js"></script>
+    <script src="cadastro-bairro.controller.js"></script>
+    <script src="../../service/alert.service.js"></script>
+    <script src="../../../node_modules/angular-ui-grid/ui-grid.js"></script>
+    <script src="../../config/pd-rotas.config.js"></script>
+    <script src="../../../node_modules/oclazyload/dist/ocLazyLoad.js"></script>
     <!-- fim do js -->
 </head>
 <body ng-app="pdApp" class="container">
@@ -45,7 +45,8 @@
                     <div class="col-md-4">
                         <div class="form-group"
                              ng-class="{'has-error' : bairroForm.nomeBairro.$touched && bairroForm.nomeBairro.$invalid}">
-                            <label class="control-label">Nome do bairro</label>
+                            <md-input-container>
+                            <label class="control-label">Nome do Bairro</label>
                             <input type="text"
                                    class="form-control"
                                    ng-model="entidade.nomeBairro"
@@ -58,13 +59,15 @@
                                  class="text-danger">
                                 <div ng-messages-include="app/template/input-ng-messages.html"></div>
                             </div>
+                            </md-input-container>
                         </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="form-group"
                              ng-class="{'has-error' : bairroForm.nomeCidade.$touched && bairroForm.nomeCidade.$invalid}">
-                            <label class="control-label">Nome da cidade</label>
+                            <md-input-container>
+                            <label class="control-label">Nome da Cidade</label>
                             <input type="text"
                                    class="form-control"
                                    ng-model="entidade.nomeCidade"
@@ -78,12 +81,14 @@
                                  class="text-danger">
                                 <div ng-messages-include="app/template/input-ng-messages.html"></div>
                             </div>
+                            </md-input-container>
                         </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="form-group"
                              ng-class="{'has-error' : bairroForm.estado.$touched && bairroForm.estado.$invalid}">
+                            <md-input-container>
                             <label class="control-label">Estado</label>
                             <input type="text"
                                    class="form-control"
@@ -98,6 +103,7 @@
                                  class="text-danger">
                                 <div ng-messages-include="app/template/input-ng-messages.html"></div>
                             </div>
+                            </md-input-container>
                         </div>
                     </div>
                 </div>

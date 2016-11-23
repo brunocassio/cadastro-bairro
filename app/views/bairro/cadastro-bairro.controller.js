@@ -6,7 +6,6 @@ angular.module('pdApp')
 
 function CadastroBairroController($scope, toastr, $state, AlertService) {
 
-    $scope.listaBairros = [];
     $scope.entidade = {};
     $scope.index = null;
 

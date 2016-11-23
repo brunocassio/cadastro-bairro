@@ -8,6 +8,17 @@ config.$inject = ['$stateProvider'];
 
 function config($stateProvider) {
 
+    var cadastroBairro = {
+        name: 'cadastroBairro',
+        url: '/cadastro-bairro',
+        templateUrl: 'app/views/bairro/index-bairro.html',
+        resolve: {
+            carregarController: function ($ocLazyLoad) {
+                return $ocLazyLoad.load('app/views/bairro/cadastro-bairro.controller.js');
+            }
+        }
+    };
+
     var visualizarBairro = {
         name: 'visualizarBairro',
         url: '/visualizar-bairro',
@@ -22,18 +33,7 @@ function config($stateProvider) {
         }
     };
 
-    var pesquisaCarro = {
-        name: 'pesquisaCarro',
-        url: '/pesquisa-carro',
-        templateUrl: 'app/views/carro/pesquisa-carro.html',
-        resolve: {
-            carregarController: function ($ocLazyLoad) {
-                return $ocLazyLoad.load('app/views/carro/pesquisa-carro.controller.js');
-            }
-        }
-    };
-
     $stateProvider
-        .state('pesquisaCarro', pesquisaCarro)
+        .state('cadastroBairro', cadastroBairro)
         .state('visualizarBairro', visualizarBairro)
 }

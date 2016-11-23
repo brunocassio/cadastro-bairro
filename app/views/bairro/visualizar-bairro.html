@@ -1,3 +1,28 @@
 <div ng-controller="VisualizarBairroController">
-    {{bairro.nomeBairro}}
+    <div class="panel panel-success">
+        <div class="panel-heading">Visualiza Bairro</div>
+        <div class="panel-body">
+            <div class="row">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Nome do Bairro</th>
+                        <th>Nome da Cidade</th>
+                        <th>Estado</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>{{bairro.nomeBairro}}</th>
+                        <th>{{bairro.nomeCidade}}</th>
+                        <th>{{bairro.estado}}</th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row" align="center">
+                <button type="button" class="btn btn-warning" ng-click="voltar()">Voltar</button>
+            </div>
+        </div>
+    </div>
 </div>
