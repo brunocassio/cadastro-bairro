@@ -4,10 +4,11 @@
 angular.module('pdApp')
     .controller('CadastroBairroController', CadastroBairroController);
 
-function CadastroBairroController($scope, toastr, AlertService) {
+function CadastroBairroController($scope, $filter,toastr, AlertService) {
 
     $scope.listaBairros = [];
     $scope.entidade = {};
+    $scope.index = null;
 
     $scope.salvar = salvar;
     $scope.limpar = limpar;
@@ -33,13 +34,18 @@ function CadastroBairroController($scope, toastr, AlertService) {
             $scope.bairroForm.nomeCidade.$setTouched();
             $scope.bairroForm.estado.$setTouched();
             return;
+        }else if($scope.index === null){
+            $scope.listaBairros.push($scope.entidade);
+            AlertService.success('Registro salvo com sucesso!');
+        }else{
+            $scope.listaBairros[$scope.index] = $scope.entidade;
         }
-        $scope.listaBairros.push($scope.entidade);
-        AlertService.success('Registro salvo com sucesso!');
+
         limpar();
     }
 
     function limpar() {
+        $scope.index = null;
         $scope.entidade = {};
         $scope.bairroForm.$setUntouched();
     }
@@ -54,6 +60,12 @@ function CadastroBairroController($scope, toastr, AlertService) {
     }
 
     function editar(linha){
+        $scope.index = $scope.listaBairros.indexOf(linha);
 
+        $scope.entidade = {
+            nomeBairro : linha.nomeBairro,
+            nomeCidade : linha.nomeCidade,
+            estado : linha.estado
+        }
     }
 }
