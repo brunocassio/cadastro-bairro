@@ -4,7 +4,7 @@
 angular.module('pdApp')
     .controller('CadastroBairroController', CadastroBairroController);
 
-function CadastroBairroController($scope, $filter,toastr, AlertService) {
+function CadastroBairroController($scope, toastr, $state, AlertService) {
 
     $scope.listaBairros = [];
     $scope.entidade = {};
@@ -56,7 +56,7 @@ function CadastroBairroController($scope, $filter,toastr, AlertService) {
     }
 
     function visualizar(linha){
-
+        $state.go('visualizarBairro', {linha: linha})
     }
 
     function editar(linha){
